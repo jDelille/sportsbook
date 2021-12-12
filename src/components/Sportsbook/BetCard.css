@@ -1,0 +1,156 @@
+.bet-card {
+ border-bottom: 1px solid lightgray;
+ height: 220px;
+ width: 100%;
+ position: relative;
+ background-color: #ffffff;
+}
+
+.minimize {
+ height: 65px;
+ border-bottom: 1px solid lightgray;
+ background-color: #fff;
+ 
+}
+
+.minimize .user-bet {
+  display: none;
+}
+
+.bet-team {
+ position: relative;
+ bottom: 5px;
+ left: 10px;
+
+}
+
+.bg-light-gray {
+ background-color: lime;
+}
+
+.hide {
+ color: lime;
+}
+
+
+.show-odd {
+ position: absolute;
+ right: 30px;
+ top: 14.5px;
+ font-weight: 700;
+}
+
+
+.bet-type {
+ position: absolute;
+ bottom: 10px;
+ left: 10.3px;
+ font-size: 12px;
+ text-transform: uppercase;
+}
+
+.bet-time {
+ position: absolute;
+ right: 30px;
+ bottom: -14px;
+ font-size: 12px;
+}
+
+.bet-matchup {
+ font-size: 12px;
+ position: absolute;
+ bottom: -14px;
+ left: 15.3px;
+}
+
+.bet-header {
+ width: 100%;
+ display: flex;
+ height: 60px;
+ align-items: center;
+ margin-left: 10px;
+ position: relative;
+}
+
+.place-bet {
+ width: 100%;
+ display: flex;
+ justify-content: space-evenly;
+ position: relative;
+ top: 30px;
+ left: -4px;
+}
+
+.user-bet {
+ width: 160px;
+ margin-left: 10px;
+ border: 1px solid lightgray;
+ border-radius: 4px;
+ padding-left: 10px;
+ height: 55px;
+}
+
+.confirm-bet {
+ width: 100%;
+ background-color: #fff;
+ height: 44px;
+ position: absolute;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ border-top: 1px solid lightgray;
+
+}
+
+.confirm-bet:hover {
+  background-color: #F0F3F8;
+  cursor: pointer;
+}
+
+.confirm-bet p {
+ color: rgb(112, 208, 112);
+ font-size: 14px;
+ margin-left: 6px;
+ 
+
+}
+
+.confirm-icon {
+  color: rgb(112, 208, 112);
+}
+
+.user-bet input
+.user-bet span {
+ background-color: #ffffff;
+ padding-left: 10px;
+ font-size: 16px;
+ border: none;
+ outline: none;
+ position: relative;
+ bottom: 10px;
+}
+
+input {
+ position: relative;
+ bottom: 0px;
+ height: 30px;
+}
+
+textarea:focus, input:focus{
+ outline: none;
+}
+
+label {
+ position: relative;
+ color: dodgerblue;
+ font-size: 12px;
+}
+
+.show-winnings {
+ position: relative;
+ color: black;
+ top: 5px;
+}
+
+

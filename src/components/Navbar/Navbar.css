@@ -1,0 +1,165 @@
+.nav {
+ width: 100%;
+ height: 75px;
+ display: flex;
+ align-items: center;
+ padding: 0 4%;
+ position: relative;
+ box-shadow: 0 2px 2px 2px rgba(0,0,0,.1);
+ color: white;
+ position: sticky;
+ top: 0;
+ z-index: 9999;
+}
+
+.bottom-nav {
+ width: 100%;
+ height: 45px;
+ display: flex;
+ align-items: center;
+ background-color: #0b64bd;
+ position: sticky;
+ top: 75px;
+ z-index: 9999;
+
+}
+
+.current-user-nav {
+ color: white;
+}
+
+.bottom-nav ul {
+ position: relative;
+ left: 222px;
+ display: flex;
+ gap: 1em;
+}
+
+.bottom-nav Link {
+ text-decoration: none;
+ color: white;
+
+}
+
+.sub-link {
+ text-decoration: none;
+ color: white;
+ text-transform: uppercase;
+ font-size: 14px;
+}
+
+.brand h1 {
+ font-size: 20px;
+}
+
+.nav-links {
+ display: flex;
+ align-items: center;
+ margin-left: auto;
+ gap: 1em;
+}
+
+.link {
+ text-decoration: none;
+}
+
+/* .member-link {
+ display: inline;
+ position: relative;
+ color: white;
+} */
+
+/* .member-link:after {
+ content: '';
+ position: absolute;
+ width: 100%;
+ transform: scaleX(0);
+ height: 3px;
+ bottom: 0;
+ left: 0;
+ background-color: #30e3ca;
+ transform-origin: bottom right;
+ transition: transform 0.25s ease-out;
+} */
+
+/* .member-link:hover:after {
+ transform: scaleX(1);
+ transform-origin: bottom left;
+} */
+
+.dark-mode {
+ font-size: 20px;
+ cursor: pointer;
+ 
+}
+
+.brand-title {
+ text-decoration: none;
+ text-transform: uppercase;
+ font-size: 18px;
+ color: white;
+}
+
+
+.current-user-nav {
+ font-size: 14px;
+}
+
+
+
+.menu-pill {
+ width: 68px;
+ height: 32px;
+ border-radius: 25px;
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ cursor: pointer;
+}
+
+
+.hamburger {
+ font-size: 18px;
+}
+
+.user-icon {
+ font-size: 16px;
+}
+
+.show-menu {
+ width: 230px;
+ height: 245px;
+ background-color: white;
+ position: absolute;
+ bottom: -260px;
+ right: 4%;
+ border-radius: 10px;
+ z-index: 999;
+}
+
+.show-menu h2 {
+ font-size: 16px;
+ position: relative;
+ top: 10px;
+ left: 10px;
+ margin-bottom: 6px;
+ width: 100%;
+ color: black;
+}
+
+.hide-menu {
+ display: none;
+}
+
+.user-coins {
+ margin-left: auto;
+ color: white;
+ padding-right: 4.1%;
+ display: flex;
+ align-items: center;
+ gap: 0.25em;
+}
+
+.coin-icon {
+ width: 40px;
+}

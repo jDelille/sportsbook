@@ -1,0 +1,301 @@
+.sportsbook-page {
+ width: 100vw;
+ display: flex;
+
+}
+
+.sportsbook {
+ width: 100vw;
+ padding-bottom: 2%;
+ margin-left: 20px;
+ 
+}
+
+.display-matches::-webkit-scrollbar {
+  display: none;
+}
+
+.schedule-tab {
+ width: 80%;
+ height: 2%;
+ display: flex;
+ align-items: center;
+ position: relative;
+ margin-bottom: 10px;
+ left: 10px;
+}
+
+.schedule-tab p {
+ width: 120px;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-transform: uppercase;
+}
+
+.schedule-tab p:hover {
+ border: 1px solid lightgray;
+ cursor: pointer;
+}
+
+.schedule-tab-sub {
+ width: 81%;
+ position: relative;
+ display: flex;
+ padding-left: 10px;
+ 
+
+}
+
+.team-labels {
+ display: flex;
+ width: 30%;
+ font-size: 12px;
+ text-transform: uppercase;
+ font-weight: bold;
+ padding-left: 20px;
+}
+
+.odds-labels {
+ display: flex;
+ width: 100%;
+ font-size: 12px;
+ text-transform: uppercase;
+ font-weight: bold;
+ justify-content: space-between;
+ height: 30px;
+
+ 
+
+}
+
+.odds-labels p {
+ width: 120px;
+ 
+ display: flex;
+ align-items: center;
+
+ cursor: pointer;
+}
+
+.record-label {
+ margin-left: auto;
+}
+
+
+.display-matches {
+ width: 100%;
+ height: auto;
+ overflow-y: scroll;
+ 
+ 
+}
+
+
+
+.stats {
+ margin-left: auto;
+ text-align: end;
+ position: relative;
+ right: 4.8%;
+}
+
+.match-box {
+ width: 80%;
+ display: flex;
+ height: 130px;
+ margin-top: 10px;
+ margin-left: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ margin-bottom: 20px;
+ padding-bottom: 40px;
+ padding-top: 10px;
+ position: relative;
+ border-radius: 4px;
+ box-shadow: 0 15px 35px 0 rgba(60,6,87, 0.08), 0 5px 15px 0 rgba(0, 0, 0, 0.12);
+
+}
+
+#border {
+  border-bottom: 1px solid lightgray;
+  position: absolute;
+  bottom: -3px;
+  width: 36%;
+  height: 1px;
+  left: 35px;
+}
+
+#border p {
+  color: lightgray;
+  position: absolute;
+  top: -8px;
+  left: -15px;
+}
+
+.scheduled-time {
+  position: absolute;
+  bottom: 10px;
+  left: 15px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.scheduled-time p {
+  text-align: left;
+  margin-right: 6px;
+}
+
+.ht-box,
+.rt-box {
+ height: 50%;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ padding: 0 10px;
+ font-size: 13px;
+ font-weight: 700;
+ position: relative;
+}
+
+.ht-box {
+  margin-bottom: 5px;
+}
+
+.team-name {
+ width: 40%;
+ display: flex;
+ align-items: center;
+ height: 100%;
+}
+
+.team-odds {
+ width: 60%;
+ display: flex;
+ align-items: center;
+ height: 100%;
+ justify-content: space-evenly;
+ position: relative;
+ 
+ }
+
+ .favorite-label {
+  margin-left: auto;
+  position: relative;
+  right: 80px;
+ }
+
+ .fav-underdog {
+  margin-left: auto;
+  position: absolute;
+  right: -127px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .badge-fav {
+  color: rgb(49, 58, 70);
+  background-color: #92e247;
+  font-size: 12px;
+  padding: 2px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+ .badge-underdog {
+  background-color: #FA5C7C;
+  color: rgb(49, 58, 70);
+  font-size: 12px;
+  padding: 2px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+.team-odds p {
+ padding: 8px;
+ width: 120px;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ border: 1px solid lightgray;
+ border-radius: 5px;
+  color: dodgerblue;
+  flex-direction: column;
+}
+
+.spread-points {
+  color: black;
+}
+
+.team-record {
+ margin-left: auto;
+ margin-right: 42px;
+}
+
+
+
+@media only screen and (max-width: 980px) {
+ .display-matches {
+   width: 100%;
+   text-align: center;
+   
+ }
+
+ .team-labels {
+  width: 60%;
+ }
+
+ .team-record {
+  display: flex;
+  position: relative;
+  left: 20px;
+  width: 140px;
+  display: flex;
+ }
+
+ .match-box {
+  width: 100%;
+ }
+ .team-odds p {
+   width: 70px;
+ }
+
+
+}
+
+
+
+
+
+#name {
+ text-transform: none;
+ margin-left: 4px;
+ width: 100px;
+ color: dodgerblue;
+
+}
+
+.initials {
+  color: dodgerblue;
+}
+
+
+.team-logo {
+ max-width: 30px;
+ margin-right: 6px;
+}

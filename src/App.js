@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from "react";
+import styled, {ThemeProvider} from 'styled-components'
+import {lightTheme, darkTheme, GlobalStyles} from './theme.js'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar';
+import Home from "./components/Home/Home.js";
+import { useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
+import firebase from "./Firebase/firebase";
+import Signup from "./Firebase/Signup";
+import Login from "./Firebase/Login.js";
+import Sportsbook from "./components/Sportsbook/Sportsbook.js";
+import NFL from './components/Gamebar/Nfl'
+
+
 import './App.css';
 
 function App() {
+
+  const [theme, setTheme] = useState('dark');
+  const StyledApp = styled.div``
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      
+      <StyledApp className="App">
+
+        <Router>
+        <AuthProvider>
+          <Navbar setTheme={setTheme} theme={theme} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/signup' component={Signup} />
+            <Route path='/sportsbook' component={Sportsbook} />
+
+            <Route path='/login' component={Login} />
+          </Switch>
+          </AuthProvider>
+        </Router>
+
+      </StyledApp>
+    </ThemeProvider>
   );
 }
 

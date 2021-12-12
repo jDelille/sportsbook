@@ -1,0 +1,168 @@
+.home {
+ height: 70vh;
+ width: 100vw;
+ overflow-x: hidden;
+ padding: 3% 0;
+}
+
+@media only screen and (max-width: 980px) {
+ .home {
+   height: 80vh;
+ }
+}
+
+@media only screen and (max-width: 600px) {
+ .home {
+   height: 100vh;
+ }
+}
+
+.crown {
+ max-width: 30px;
+ position: relative;
+ top: 5px;
+ margin: 0;
+}
+
+.title {
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 16px;
+ margin-bottom: 16px;
+}
+
+.desc {
+ text-align: center;
+ text-transform: uppercase;
+ font-size: 3em;
+}
+
+.site-info {
+ width: 100%;
+ height: 40%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.bonus-offer {
+ font-size: 2em;
+ margin-top: 26px;
+ margin-bottom: 34px;
+ text-align: center;
+ color: #08ab7c
+}
+
+.asterisk {
+ color: #08ab7c;
+ font-size: 20px;
+}
+
+.btn-1 {
+ padding: 10px 30px;
+ font-size: 18px;
+ display: block;
+ margin: 0 auto;
+}
+
+.view-odds {
+ text-align: center;
+ color: black;
+ display: block;
+ margin-top: 26px;
+}
+
+.disclaimer {
+ width: 50%;
+ display: block;
+ margin: 26px auto;
+ text-align: center;
+}
+
+@media only screen and (max-width: 980px) {
+ .disclaimer {
+   width: 80%;
+   text-align: center;
+   
+ }
+
+}
+
+
+.how-to {
+ width: 100%;
+ height: 100vh;
+ padding: 3% 7%;
+ position: relative;
+}
+
+.how-to-title {
+ text-align: center;
+ font-size: 1.4em;
+ text-transform: uppercase;
+
+}
+
+.step-box-container {
+ width: 100%;
+ height: 40%;
+ display: flex;
+ justify-content: space-evenly;
+ margin-top: 66px;
+}
+
+
+
+.step-box {
+ box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 1px 2px 0 rgb(0 0 0 / 10%);
+ width: 20%;
+ height: 100%;
+ text-transform: uppercase;
+ padding: 10px 0;
+ position: relative;
+ border-radius: 4px;
+}
+
+@media only screen and (max-width: 980px) {
+ .step-box-container {
+   flex-direction: column;
+   align-items: center;
+   position: relative;
+   height: 100%;
+   
+ }
+ .step-box {
+  width: 100%;
+  height: 40%;
+ }
+}
+
+.box-title {
+ width: 100%;
+ height: 20%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ border-bottom: 1px solid lightgray;
+}
+
+.box-desc {
+ font-size: 14px;
+ text-transform: none;
+ padding: 10px 20px;
+}
+
+.btn-2 {
+ padding: 10px 20px;
+ display: block;
+ margin: 0 auto;
+ position: relative;
+ top: 40px;
+ cursor: pointer;
+}
+
+.box-desc span {
+ color: dodgerblue;
+ margin-top: 20px;
+}
