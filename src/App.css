@@ -11,6 +11,10 @@
 .App {
   width: 100vw;
   height: 100vh;
-  overflow-x: hidden;
+  overflow-x: scroll;
 
+}
+
+.App::-webkit-scrollbar {
+  display: none;
 }

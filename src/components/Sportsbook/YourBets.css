@@ -1,0 +1,151 @@
+.your-bets-card {
+ height: 38%;
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ border-bottom: 1px solid lightgray;
+ position: relative;
+ align-items: center;
+}
+
+.info-box {
+ width: 100%;
+ height: 30%;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ padding: 10px;
+ border-bottom: 1px solid lightgray;
+ background-color: #f1f1f1;
+ padding-top: 10px;
+}
+
+.top-box,
+.bottom-box {
+ height: 50%;
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ font-size: 12px;
+ align-items: center;
+ gap: 1em;
+}
+
+.did-lose {
+ background-color: rgb(241, 58, 58);
+ width: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ border-radius: 2px;
+}
+
+.did-win {
+ background-color: #10b136;
+ width: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: white;
+ border-radius: 2px;
+}
+
+
+.your-bets-header {
+ height: 20%;
+ display: flex;
+ align-items: center;
+ width: 100%;
+ padding: 10px;
+ border-bottom: 1px solid lightgray;
+
+}
+
+
+.bet-placed-at {
+ font-size: 12px;
+
+ width: 100%;
+}
+
+.kickoff-time {
+ font-size: 12px;
+ text-align: baseline;
+}
+
+.bet-match {
+ font-size: 12px;
+ position: relative;
+ height: 23px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: end;
+}
+
+.match-shortName {
+ font-weight: bold;
+ font-size: 12.5px;
+}
+
+.bet-match-info {
+ width: 100%;
+ height: 40px;
+ display: flex;
+ padding: 10px;
+ 
+ justify-content: space-between;
+
+
+}
+
+.collect-btn {
+ background-color: #10b136;
+ color: white;
+ cursor: pointer;
+ font-size: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding: 4px;
+ border-radius: 2px;
+}
+
+.collect-btn:hover {
+ background-color: #0b8027;
+
+}
+
+.brand-name {
+ font-size: 8px;
+ text-transform: uppercase;
+ margin-right: 6px;
+}
+
+.bet-info {
+ width: 95%;
+ height: 30%;
+ position: absolute;
+ bottom: 0;
+ display: flex;
+ flex-direction: column;
+ 
+
+}
+
+.bet-team-name {
+ font-size: 14px;
+ font-weight: bold;
+}
+
+.wagered,
+.to-win,
+.potential {
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ height: 50%;
+ font-size: 12px;
+}

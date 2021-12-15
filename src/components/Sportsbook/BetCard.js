@@ -9,7 +9,7 @@ import {AiOutlineInfoCircle} from 'react-icons/ai'
 
 
 
-function BetCard({array, counter, getBet, showBet}) {
+function BetCard({array, counter, getBet, showBet, state}) {
 
 
  const [makeWager, setMakeWager] = useState('')
@@ -19,6 +19,9 @@ function BetCard({array, counter, getBet, showBet}) {
 
  const [userInfo, setUserInfo] = useState([])
  const [expandCard, setExpandCard] = useState([false])
+
+ const [confirm, setConfirm] = useState(false)
+ const [placed, setPlaced] = useState([])
 
 
 //  function ExpandCard(id) {
@@ -51,6 +54,16 @@ const placeBet = () => {
   })
 }
 
+ // add user bet to firestore
+ const makeBet = () => {
+  const userUID = auth.currentUser.uid;
+  let db = firebase.firestore()
+  db.collection('users').doc(userUID).update({
+    placedBets: firebase.firestore.FieldValue.arrayUnion({...placed})
+  })
+ }
+
+
 
 // function placeBet() {
 //   console.log(userInfo.coins - makeWager)
@@ -59,7 +72,7 @@ const placeBet = () => {
 useEffect(() => {
   getUserInfo()
   
-}, [])
+}, [state])
 
   // if(makeWager > userInfo.coins) {
   //   console.log('You dont have enough coins')
@@ -76,9 +89,16 @@ useEffect(() => {
   }
   
   let calculateBet = makeWager
+  let payout = calculateBet
+
+  const timestamp =  new Date().toLocaleString();
 
 
-  
+
+
+
+
+
 
 
  return (
@@ -90,21 +110,39 @@ useEffect(() => {
     <div
       
       id={index}
-      className={show === item.team.id ? 'bet-card' : 'minimize'}
+      className={show === item.id ? 'bet-card' : 'minimize'}
       onClick={() => setMakeWager(0)}
       >
       
      <>
      <div 
-     onClick={() => handleClick(item.team.id)}
+     onClick={() => handleClick(item?.id)}
      className="bet-header">
-      <p className="bet-team">{item.team.abbreviation}</p>
-      <p className="show-odd">{item.moneyLine}</p>
+      <p className="bet-team">{item?.team}</p>
+      {item?.moneyline ? (
+        <p className="show-odd">{item?.moneyline}</p>
+
+      ): item?.total ? (
+        <p className="show-odd">{item?.total}</p>
+      ): item?.spread ? (
+        <p className="show-odd">{item?.spread}</p>
+
+      ):(
+        ''
+      )}
       <br />
-      <p className="bet-type"> Moneyline</p>
-      <p 
-      className="bet-matchup">{item.name}</p>
-      <p className="bet-time">{item.summary}</p>
+      {item?.moneyline ? (
+        <p className="bet-type"> Moneyline</p>
+
+      ): item?.total ? (
+        <p className="bet-type"> Total </p>
+      ): item?.spread ?(
+        <p className="bet-type"> Spread </p>
+      ):(
+        ''
+      )}
+      <p className="bet-matchup">{item?.matchup}</p>
+      <p className="bet-time">{item?.kickoff}</p>
      </div>
      
      <div className="place-bet">
@@ -122,10 +160,10 @@ useEffect(() => {
        <br />
        
       <span className="show-winnings">
-      {item.moneyLine < 0 ? (
-        `$ ${(Math.abs(calculateBet / (item.moneyLine / 100) + calculateBet) ).toFixed(2)}`
+      {item.moneyline < 0 ? (
+        `$ ${(Math.abs(calculateBet / (item.moneyline / 100) + calculateBet) ).toFixed(2)}`
       ):(
-        `$ ${Math.floor(Math.abs(calculateBet * (item.moneyLine / 100)))}`
+        `$ ${Math.floor(Math.abs(calculateBet * (item.moneyline / 100)))}`
       )}
        </span>
        
@@ -138,7 +176,22 @@ useEffect(() => {
      </>
      <div 
      className="confirm-bet"
-     onClick={() => placeBet()}
+     onClick={() => {
+       setPlaced({ 
+            id: item?.competitionId,
+            team: item?.team,
+            wager: +makeWager,
+            matchup: item?.matchup,
+            placedAt: timestamp,
+            winner: item?.winner,
+            kickoff: item?.kickoff,
+            shortName: item?.shortName,
+            payout: Math.floor(Math.abs(makeWager * (item.moneyline / 100)))
+            })
+       makeBet();
+       placeBet();
+     }}
+      
      >
      {auth.currentUser ? (
        <>

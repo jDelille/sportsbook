@@ -1,9 +1,9 @@
 .sidebar {
- width: 420px;
+ width: 200px;
  height: 84.75vh;
  background-color: #1F375B;
- position: sticky;
- top: 120px;
+ position: fixed;
+ top: 16%;
  padding-top: 10px;;
 
 }

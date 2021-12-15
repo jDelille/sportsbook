@@ -3,18 +3,22 @@ import { auth } from '../../Firebase/firebase'
 import Betslip from './Betslip'
 import firebase from 'firebase'
 import Sidebar from './Sidebar'
+import Display from './Display'
 
 import './Sportsbook.css'
+import LiveSports from './LiveSports'
+import YourBets from './YourBets'
 
 export default function Sportsbook() {
 
  const [matches, setMatches] = useState([])
-
  const [makePicks, setMakePick] = useState([])
-
- const [addBet, setAddBet] = useState([])
-
+ const [state, setState] = useState({})
  let [counter, setCounter] = useState(0)
+
+ const [showLive, setShowLive] = useState(false)
+ const [showLines, setShowLines] = useState(true)
+ const [showBets, setShowBets] = useState(false)
 
 
  const getData = () => {
@@ -37,7 +41,7 @@ export default function Sportsbook() {
   const userUID = auth.currentUser.uid;
   let db = firebase.firestore()
   db.collection('users').doc(userUID).update({
-    bet: firebase.firestore.FieldValue.arrayUnion({...addBet})
+    bet: firebase.firestore.FieldValue.arrayUnion({...state})
   })
  }
 
@@ -48,14 +52,16 @@ export default function Sportsbook() {
    getData()
    
  }, [])
+ const [showBet, setShowBet] = useState()
 
  useEffect(() => {
   AddBet()
- }, [addBet])
+ }, [showBet])
+
+ console.log(state)
 
   //get user bet info 
 
-  const [showBet, setShowBet] = useState()
 
   function getBet() {
     let db = firebase.firestore();
@@ -78,121 +84,62 @@ export default function Sportsbook() {
  console.log(matches)
 
 
+ function ShowLive() {
+   setShowLines(false)
+   setShowLive(true)
+ }
+
+ function ShowLines() {
+   setShowLive(false)
+   setShowLines(true)
+ }
+
+ function ShowBets() {
+  setShowLive(false)
+  setShowLines(false)
+  setShowBets(true)
+ }
+
+
 
  return (
   <div className="sportsbook-page">
-  <Sidebar />
+  <Sidebar setShowBets={setShowBets} showBets={showBets}/>
   <div className='sportsbook'>
     <div className="schedule-tab">
-     <p> Live in-game </p>
-     <p> Game Lines </p>     
+    
+     <p
+     onClick={ShowLive}
+     > Live in-game 
+     <div className="live-icon">
+      
+      </div> </p>
+     <p
+     onClick={ShowLines}> Game Lines </p>     
     </div>
     <div className="schedule-tab-sub">
-    
     <div className="odds-labels">
-     {/* <p> Moneyline </p>
-     <p> Spread </p>
-     <p> Total </p> */}
+     <p className="spread-label"> Spread </p>
+     <p> Moneyline </p>
+     <p className="total-label"> Total </p>
     </div>
-    {/* <p className="favorite-label"> Favorite </p> */}
-        
     </div>
-    <div className="display-matches">
-     {matches.map(item => {
-       return (
-        <div className="match-box">
-        <div className="ht-box">
-        <div className="team-name">
-         <img className="team-logo" src={`../icons/${item.competitors[0].abbreviation}.svg`} alt='logo'
-         />
-         <p className='initials'>{item.competitors[0].abbreviation}</p>
-         <p id='name'>{item.competitors[0].name}</p>
-         <p className="team-record">{item.competitors[0].record}</p>
-         
-         </div>
-         <div id="border">
-           <p>@</p>
-         </div>
-         <div className="team-odds">
-          <div className="spread">
-          
-          <p>
-          <span className="spread-points" >{item.odds.spread}</span>
-          {item.odds.homeTeamOdds.spreadOdds}</p>
-          </div>
-          <div className="moneyline">
-           <p
-           onClick={() => {setAddBet(item.odds.homeTeamOdds); getBet()}}
-           >
-           {item.odds.homeTeamOdds.moneyLine}</p>
-          </div>
-          
-          <div className="total">
-           <p>
-           <span className="spread-points"> O {item.odds.overUnder}</span>
-           {item.odds.overOdds}</p>
-          </div>
-         </div>
-         {/* <div className="fav-underdog">
-          {item.odds.homeTeamOdds?.favorite ? (
-           <div className="badge-fav">
-            <h3 className='favorite'>FAV</h3>
-           </div>
-          ): (
-           <div className="badge-underdog">
-            <h3 className='underdog'>DOG</h3>
-           </div>
-          )}
-         </div> */}
-        </div>
-        <div className='rt-box'>
-        <div className="team-name">
-         <img className="team-logo" src={`../icons/${item.competitors[1].abbreviation}.svg`} alt='logo'
-         />
-         <p className="initials">{item.competitors[1].abbreviation}</p>
-         <p id="name">{item.competitors[1].name}</p>
-         <p className="team-record">{item.competitors[1].record}</p>
 
-         </div>
-         <div className="team-odds">
-          <div className="spread">
-            <p>
-            <span className="spread-points">{item.odds.spread}</span>
-            {item.odds.awayTeamOdds.spreadOdds}</p>
-          </div>
-          <div className="moneyline"
-          onClick={() => {setAddBet(item.odds.awayTeamOdds); getBet()}}>
-           <p>{item.odds.awayTeamOdds.moneyLine}</p>
-          </div>
-          
-          <div className="total">
-           <p>
-           <span className="spread-points"> U {item.odds.overUnder}</span>
-           {item.odds.overOdds}</p>
-          </div>
-         </div>
-         {/* <div className="fav-underdog">
-          {item.odds.awayTeamOdds?.favorite ? (
-           <div className="badge-fav">
-            <h3 className='favorite'>FAV</h3>
-           </div>
-          ): (
-           <div className="badge-underdog">
-            <h3 className='underdog'>DOG</h3>
-           </div>
-          )}
-         </div> */}
-        </div>
-        <div className="scheduled-time">
-         <p>{item.broadcasts[0].station}</p>
-         <p>{item.summary}</p>
-        </div>
-       </div>
-       )
-     })}
-    </div>
+    {showLines ? (
+      <Display matches={matches} setState={setState} getBet={getBet} state={state} />
+    ) : showLive ? (
+      <LiveSports matches={matches} setState={setState} getBet={getBet} state={state} />
+    ) : showBets ? (
+      <YourBets />
+    ) : (
+      ''
+    ) 
+    })
+    
+
+
   </div>
-  <Betslip makePicks={makePicks} counter={counter} showBet={showBet} deleted={deleted} setDeleted={setDeleted} />
+  <Betslip makePicks={makePicks} counter={counter} showBet={showBet} deleted={deleted}  setDeleted={setDeleted} state={state}/>
   </div>
  )
 }

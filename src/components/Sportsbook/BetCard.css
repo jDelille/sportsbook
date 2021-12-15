@@ -3,11 +3,12 @@
  height: 220px;
  width: 100%;
  position: relative;
- background-color: #ffffff;
+ 
+ 
 }
 
 .minimize {
- height: 65px;
+ height: 85px;
  border-bottom: 1px solid lightgray;
  background-color: #fff;
  
@@ -32,6 +33,10 @@
  color: lime;
 }
 
+.danger {
+  color: red;
+}
+
 
 .show-odd {
  position: absolute;
@@ -53,14 +58,14 @@
  position: absolute;
  right: 30px;
  bottom: -14px;
- font-size: 12px;
+ font-size: 11px;
 }
 
 .bet-matchup {
- font-size: 12px;
+ font-size: 11px;
  position: absolute;
  bottom: -14px;
- left: 15.3px;
+ left: 10.3px;
 }
 
 .bet-header {
@@ -92,7 +97,6 @@
 
 .confirm-bet {
  width: 100%;
- background-color: #fff;
  height: 44px;
  position: absolute;
  bottom: 0;
@@ -104,12 +108,13 @@
 }
 
 .confirm-bet:hover {
-  background-color: #F0F3F8;
+  background-color: #D4EDDA;
   cursor: pointer;
+
 }
 
 .confirm-bet p {
- color: rgb(112, 208, 112);
+ color: rgb(90, 171, 90);
  font-size: 14px;
  margin-left: 6px;
  
@@ -117,7 +122,7 @@
 }
 
 .confirm-icon {
-  color: rgb(112, 208, 112);
+  color: rgb(90, 171, 90);
 }
 
 .user-bet input
@@ -149,8 +154,14 @@ label {
 
 .show-winnings {
  position: relative;
- color: black;
  top: 5px;
+}
+
+.bet-spread {
+  font-size: 13px;
+  position: absolute;
+  bottom: -16px;
+  left: 11px
 }
 
 

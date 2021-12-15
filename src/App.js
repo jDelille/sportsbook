@@ -14,6 +14,7 @@ import NFL from './components/Gamebar/Nfl'
 
 
 import './App.css';
+import YourBets from "./components/Sportsbook/YourBets.js";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/signup' component={Signup} />
             <Route path='/sportsbook' component={Sportsbook} />
+            <Route path='/yourBets' component={YourBets} />
 
             <Route path='/login' component={Login} />
           </Switch>

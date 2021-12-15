@@ -5,9 +5,14 @@ import firebase from 'firebase'
 import { auth } from '../../Firebase/firebase'
 import {AiOutlineInfoCircle} from 'react-icons/ai'
 import './Betslip.css'
+import YourBets from './YourBets'
 
-function Betslip( {makePicks, counter, showBet, deleted, setDeleted} ) {
+function Betslip( {makePicks, counter, showBet, deleted, setDeleted, state} ) {
  
+
+  const [showActive, setShowActive] = useState(false)
+  const [showSlip, setShowSlip] = useState(true)
+
 
 
  // clear bets
@@ -21,8 +26,17 @@ function Betslip( {makePicks, counter, showBet, deleted, setDeleted} ) {
   setDeleted(deleted)
  }
 
+ function ShowSlip() {
+   setShowSlip(true)
+   setShowActive(false)
+   
+ }
 
-
+ function ShowActive() {
+  setShowActive(true)
+  setShowSlip(false)
+  
+}
 
 
  let array = []
@@ -32,11 +46,23 @@ function Betslip( {makePicks, counter, showBet, deleted, setDeleted} ) {
  return (
   <>
   <div className="betslip">
-   <p className="betslip-title"> <span className="active-bets">{showBet?.bet.length - 1}</span> Betslip </p>
+   <div className="betslip-title"> <span className="active-bets" >{showBet?.bet.length - 1}</span> 
+   <p
+   onClick={ShowSlip}
+   >Betslip </p>
+   <p 
+   onClick={ShowActive}
+   className="active-bets-toggle"> Active Bets </p>
+   </div>
+   
 
+  
+  {showSlip ? (
+    <>
+    <div className="show-user-bets">
    {/* bet card */}
-   <BetCard array={array} counter={counter} showBet={showBet} deleted={deleted}/>
-
+   <BetCard array={array} counter={counter} showBet={showBet} deleted={deleted} state={state}/>
+  </div>
 
 
    <button 
@@ -48,6 +74,15 @@ function Betslip( {makePicks, counter, showBet, deleted, setDeleted} ) {
     <p className="parlay-info"> Parlays disabled. Only single bets allowed.</p>
     <p className="parlay-info learn-more-link"> Learn more </p>
   </div>
+  </>
+  ):(
+    <div className="show-user-active-bets">
+      <YourBets showBet={showBet} />
+    </div>
+  
+  )}
+ 
+  
   </div>
   
   

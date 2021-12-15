@@ -1,56 +1,71 @@
 .betslip {
- width: 700px;
- border: 1px solid lightgray;
+ width: 380px;
  height: 84.75vh;
  margin-left: 3.8%;
  margin-right: 3%;
- box-shadow: 0 15px 35px 0 rgba(60,6,87, 0.08), 0 5px 15px 0 rgba(0, 0, 0, 0.12);
- position: sticky;
- top: 120px;
- overflow-y: scroll;
+ box-shadow: 0 15px 35px 0 rgba(26, 24, 27, 0.08), 0 0px 2px 3px rgba(228, 222, 222, 0.12);
+ position: fixed;
+ top: 16%;
+ right: 0%;
  padding-bottom: 75px;
  overflow-x: hidden;
  display: flex;
  flex-direction: column;
+
 }
 
-/* width */
-.betslip::-webkit-scrollbar {
- display: none;
+.show-user-bets {
+ overflow-y: auto;
+ overflow-x: hidden;
+ height: 100%;
+}
+
+.show-user-active-bets {
+ height: 100%;
+ overflow-y: auto;
+ overflow-x: hidden;
+ 
 }
 
 /* Track */
-.betslip::-webkit-scrollbar-track {
- background: #f1f1f1;
+.show-user-bets::-webkit-scrollbar-track {
+ background: #7b1818;
 }
 
 /* Handle */
-.betslip::-webkit-scrollbar-thumb {
+.show-user-bets::-webkit-scrollbar-thumb {
  background: lightgray;
  border-radius: 25px;
 }
 
 /* Handle on hover */
-.betslip::-webkit-scrollbar-thumb:hover {
+.show-user-bets::-webkit-scrollbar-thumb:hover {
  background: #555;
 }
 
 .betslip-title {
  text-align: center;
  text-transform: uppercase;
- height: 45px;
+ padding: 15px 0;
+ border-bottom: 2px solid #0B64BD;
  font-size: 20px;
  background-color: #ffffff;
  display: flex;
  align-items: center;
- justify-content: center;
- border-bottom: 1px solid lightgray;
- box-shadow: 0 15px 35px 0 rgba(60,6,87, 0.04);
- width: 100%;
+ /* box-shadow: 0 15px 35px 0 rgba(26, 24, 27, 0.08), 0 0px 2px 3px rgba(228, 222, 222, 0.12); */
+  width: 100%;
  position: sticky;
  top: 0;
  z-index: 9999;
+ padding-left: 40px;
 }
+
+.active-bets-toggle {
+ margin-left: auto;
+ padding-right: 10px;
+}
+
+
 
 .active-bets {
  position: absolute;
@@ -69,21 +84,20 @@
 
 .clear-btn {
  color: rgb(241, 58, 58);
- height: 45px;
+ height: 65px;
  display: flex;
  align-items: center;
  justify-content: center;
  width: 100%;
  border: none;
- border-top: 1px solid lightgray;
- border-bottom: 1px solid lightgray;
+ box-shadow: 0 15px 35px 0 rgba(26, 24, 27, 0.08), 0 0px 2px 3px rgba(228, 222, 222, 0.12); 
  background-color: #ffffff;
  margin-top: 20px;
  cursor: pointer;
 }
 
 .clear-btn:hover {
- background-color: #F0F3F8;
+ background-color: #F8D7DA;
 }
 
 .trash-icon {

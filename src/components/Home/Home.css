@@ -3,6 +3,8 @@
  width: 100vw;
  overflow-x: hidden;
  padding: 3% 0;
+ position: relative;
+ top: 16%;
 }
 
 @media only screen and (max-width: 980px) {

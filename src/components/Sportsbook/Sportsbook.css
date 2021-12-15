@@ -1,6 +1,8 @@
 .sportsbook-page {
  width: 100vw;
  display: flex;
+ position: relative;
+ top: 16%;
 
 }
 
@@ -15,14 +17,25 @@
   display: none;
 }
 
+.live-icon {
+  background-color: rgb(243, 64, 64);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: -6px;
+}
+
 .schedule-tab {
- width: 80%;
- height: 2%;
+ width: 48%;
+ height: 40px;
  display: flex;
  align-items: center;
  position: relative;
  margin-bottom: 10px;
- left: 10px;
+ left: 210px;
+ gap: 1em;
 }
 
 .schedule-tab p {
@@ -31,19 +44,21 @@
  display: flex;
  align-items: center;
  justify-content: center;
+ position: relative;
  text-transform: uppercase;
+ 
 }
 
 .schedule-tab p:hover {
- border: 1px solid lightgray;
  cursor: pointer;
+ text-decoration: underline;
 }
 
 .schedule-tab-sub {
- width: 81%;
+ width: 48%;
  position: relative;
  display: flex;
- padding-left: 10px;
+ left: 210px;
  
 
 }
@@ -59,24 +74,33 @@
 
 .odds-labels {
  display: flex;
- width: 100%;
+ width: 60%;
+ margin-left: auto;
  font-size: 12px;
  text-transform: uppercase;
+ justify-content: center;
  font-weight: bold;
- justify-content: space-between;
  height: 30px;
-
  
 
 }
 
 .odds-labels p {
- width: 120px;
- 
  display: flex;
  align-items: center;
-
+ width: 140px;
+ justify-content: center;
  cursor: pointer;
+}
+
+.spread-label {
+  position: relative;
+  left: 2%;
+}
+
+.total-label {
+  position: relative;
+  right: 3%;
 }
 
 .record-label {
@@ -85,9 +109,12 @@
 
 
 .display-matches {
- width: 100%;
+ width: 60%;
  height: auto;
  overflow-y: scroll;
+ position: relative;
+ left: 200px;
+ 
  
  
 }
@@ -115,7 +142,7 @@
  padding-top: 10px;
  position: relative;
  border-radius: 4px;
- box-shadow: 0 15px 35px 0 rgba(60,6,87, 0.08), 0 5px 15px 0 rgba(0, 0, 0, 0.12);
+ box-shadow: 0 15px 35px 0 rgba(26, 24, 27, 0.08), 0 0px 2px 3px rgba(228, 222, 222, 0.12);
 
 }
 
@@ -225,8 +252,7 @@
  }
 
 .team-odds p {
- padding: 8px;
- width: 120px;
+ min-width: 100px;
  height: 40px;
  display: flex;
  align-items: center;
@@ -239,7 +265,6 @@
 }
 
 .spread-points {
-  color: black;
 }
 
 .team-record {
@@ -251,7 +276,7 @@
 
 @media only screen and (max-width: 980px) {
  .display-matches {
-   width: 100%;
+   width: 110%;
    text-align: center;
    
  }
@@ -269,7 +294,7 @@
  }
 
  .match-box {
-  width: 100%;
+  
  }
  .team-odds p {
    width: 70px;

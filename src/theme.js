@@ -50,6 +50,8 @@ export const GlobalStyles = createGlobalStyle`
  .home h1,
  .how-to p,
  .how-to h1,
+ input,
+ span,
  p {
   color: ${(props) => props.theme.fontColor};
 
@@ -57,6 +59,12 @@ export const GlobalStyles = createGlobalStyle`
 
  .schedule-tab,
  .odds-labels,
+ .betslip,
+ .betslip-title,
+ .clear-btn,
+ .bet-box,
+ .minimize,
+ input,
  .match-box {
   background-color: ${(props) => props.theme.matchBox}
  }

@@ -51,10 +51,22 @@ function getUserInfo() {
 
 console.log(userInfo.coins)
 
+console.log(userInfo.placedBets)
+
+ let [winnings, setWinnings] = useState(0)
+
+
+
+
+
+
+
+const obj = {coins: userInfo.coins}
+
 
 useEffect(() => {
   getUserInfo()
-}, [])
+}, [winnings])
 
 
 

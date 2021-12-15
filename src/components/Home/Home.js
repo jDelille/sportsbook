@@ -16,7 +16,7 @@ function Home() {
     <div className="site-info">
     <div className="site-info-p">
      <p className="bonus-offer"> Get a bonus up to $1000*. </p>
-     <button className="btn-1"> Sign Me Up </button>
+     <Link to="/signup" className="view-odds">Sign Me Up</Link>
      <Link to="/sportsbook" className="view-odds">View Odds</Link>
      <p className="disclaimer">
       <span className="asterisk">*</span> This website is in no way an actual website. This is a personal project made to copy an actual sportbetting website. While all the odds are real, no money can be placed on games. The currency used on this site is fictional and only emulates real money. This website was made with React and ESPN NFL API.
@@ -30,7 +30,7 @@ function Home() {
     
     
   </div>
-  <div className="how-to">
+  {/* <div className="how-to">
    <h1 className="how-to-title"> How to get started </h1>
    <div className="step-box-container">
     <div className="step-box">
@@ -55,7 +55,6 @@ function Home() {
     </div>
    </div>
    {/* <Footer /> */}
-  </div>
   
 
   </>

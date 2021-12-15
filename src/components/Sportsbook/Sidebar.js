@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext'
 import { Link } from 'react-router-dom'
 import './Sidebar.css'
 
-export default function Sidebar() {
+export default function Sidebar(setShowBets) {
  const { currentUser, logout } = useAuth();
 
  const [userInfo, setUserInfo] = useState([])
@@ -39,7 +39,7 @@ useEffect(() => {
     <Link to="/sportsbook" className="sub-link">About</Link>
     <Link to="/sportsbook" className="sub-link">Expert Picks</Link>
     <Link to="/sportsbook" className="sub-link">News</Link>
-    <Link to='/' className="sub-link">Your Bets</Link>
+    <p>Your Bets</p>
     </ul>
   </div>
    <div className="sidebar-footer">
@@ -50,7 +50,6 @@ useEffect(() => {
         <div className="user-info-footer">
           <p className="user-coins-footer">Your coins <br /> {userInfo.coins}</p>
           <p> Current Bets <br /> 4 </p>
-          <p> Record <br /> N/A</p>
       </div>
      </>
     ): (
